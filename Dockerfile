@@ -6,12 +6,8 @@ USER node
 
 WORKDIR /app
 
-COPY --chown=node:node package.json package-lock.json ./
-
-RUN npm install
-
-COPY . .
+RUN mkdir -p ./node_modules && chown -R node:node ./node_modules
 
 EXPOSE 5173
 
-CMD ["npm", "run", "dev"]
+CMD ["sh", "-c", "npm install && npm run dev"]

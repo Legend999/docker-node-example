@@ -9,4 +9,5 @@
    ```bash
    docker stop $(docker ps -q)
    docker system prune --all --volumes --force
+   docker volume rm $(docker volume ls -q)
    ```
